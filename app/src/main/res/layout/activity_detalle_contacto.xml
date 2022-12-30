@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleContactoActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:textStyle="bold"
+            android:textSize="@dimen/nombre_contacto"/>
+
+        <LinearLayout
+            android:id="@+id/llTelefono"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_below="@+id/tvNombre"
+            android:layout_marginTop="@dimen/top"
+            android:clickable="true"
+            android:onClick="marcar">
+
+            <ImageView
+                android:id="@+id/imgTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/telefono_9"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/imgTelf" />
+            <TextView
+                android:id="@+id/tvTelefono"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/telefono"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/texto_contacto"
+                android:layout_marginLeft="@dimen/left" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/llTelefono"
+            android:layout_marginTop="@dimen/top"
+            android:clickable="true"
+            android:onClick="enviarMail">
+
+            <ImageView
+                android:id="@+id/imgEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/email_9"
+                android:scaleType="centerCrop"
+                android:contentDescription="@string/imgDescrip" />
+
+            <TextView
+                android:id="@+id/tvEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email"
+                android:layout_gravity="center_vertical"
+                android:textSize="@dimen/texto_contacto"
+                android:layout_marginLeft="@dimen/left" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
