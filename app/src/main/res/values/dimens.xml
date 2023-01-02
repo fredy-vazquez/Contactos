@@ -4,4 +4,13 @@
     <dimen name="texto_contacto">20sp</dimen>
     <dimen name="top">20sp</dimen>
     <dimen name="left">10sp</dimen>
+    <dimen name="right">10sp</dimen>
+    <dimen name="margin_left">15sp</dimen>
+    <dimen name="margin_right">15sp</dimen>
+    <dimen name="activity_horizontal_margin">16sp</dimen>
+    <dimen name="activity_vertical_margin">16sp</dimen>
+    <dimen name="corner_radius_cardview">4sp</dimen>
+    <dimen name="nombre_cardview">25sp</dimen>
+    <dimen name="descripcion_cardview">18sp</dimen>
+    <dimen name="img_width">150sp</dimen>
 </resources>
