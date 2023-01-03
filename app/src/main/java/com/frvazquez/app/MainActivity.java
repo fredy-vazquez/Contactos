@@ -15,7 +15,6 @@ import com.frvazquez.app.model.Contacto;
 
 import java.util.ArrayList;
 
-
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class MainActivity extends AppCompatActivity {
 
@@ -28,38 +27,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         cargarContactos();
         iniciarRecycleView();
-        verDetalles();
     }
 
     private void iniciarRecycleView() {
         listaContactos = findViewById(R.id.rvContactos);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
+        //GridLayoutManager glm = new GridLayoutManager(this, 2);
 
-        GridLayoutManager glm = new GridLayoutManager(this, 2);
-
-        listaContactos.setLayoutManager(glm);
+        listaContactos.setLayoutManager(llm);
         iniciarlizarAdaptador();
     }
 
 
     private void iniciarlizarAdaptador() {
-        ContactoAdaptador adaptador = new ContactoAdaptador(contactos);
+        ContactoAdaptador adaptador = new ContactoAdaptador(contactos, this);
         listaContactos.setAdapter(adaptador);
-    }
-
-    private void verDetalles() {
-       /* lstContactos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Intent intent = new Intent(MainActivity.this, DetalleContactoActivity.class);
-                intent.putExtra(getResources().getString(R.string.pnombre), contactos.get(i).getNombre());
-                intent.putExtra(getResources().getString(R.string.ptelefono), contactos.get(i).getTelefono());
-                intent.putExtra(getResources().getString(R.string.pemail), contactos.get(i).getEmail());
-                startActivity(intent);
-                finish();
-            }
-        });*/
     }
 
     private void cargarContactos() {

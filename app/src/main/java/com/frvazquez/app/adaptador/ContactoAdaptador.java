@@ -1,14 +1,18 @@
 package com.frvazquez.app.adaptador;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.frvazquez.app.DetalleContactoActivity;
 import com.frvazquez.app.R;
 import com.frvazquez.app.model.Contacto;
 
@@ -17,9 +21,11 @@ import java.util.ArrayList;
 public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.ContactoViewHolder> {
 
     private ArrayList<Contacto> contactos;
+    private Activity activity;
 
-    public ContactoAdaptador(ArrayList<Contacto> contactos) {
+    public ContactoAdaptador(ArrayList<Contacto> contactos, Activity activity) {
         this.contactos = contactos;
+        this.activity = activity;
     }
 
     @NonNull
@@ -38,6 +44,19 @@ public class ContactoAdaptador extends RecyclerView.Adapter<ContactoAdaptador.Co
         contactoViewHolder.tvNombre.setText(contacto.getNombre());
         contactoViewHolder.tvTelefono.setText(contacto.getTelefono());
         contactoViewHolder.tvEmail.setText(contacto.getEmail());
+
+        contactoViewHolder.ivFoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(activity, contacto.getNombre(), Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(activity, DetalleContactoActivity.class);
+                intent.putExtra("Nombre", contacto.getNombre());
+                intent.putExtra("Telefono", contacto.getTelefono());
+                intent.putExtra("Email", contacto.getEmail());
+                activity.startActivity(intent);
+                activity.finish();
+            }
+        });
     }
 
     @Override
