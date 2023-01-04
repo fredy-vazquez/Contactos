@@ -7,6 +7,7 @@
     android:layout_marginBottom="@dimen/activity_vertical_margin"
     app:cardCornerRadius="@dimen/corner_radius_cardview">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -21,31 +22,53 @@
             android:src="@drawable/rave_9"
             android:layout_gravity="center_horizontal"
             android:background="@null"
-           />
-
-        <TextView
-            android:id="@+id/tvNombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pnombre"
-            android:textSize="@dimen/nombre_cardview"
-            android:textStyle="bold" />
-        <TextView
-            android:id="@+id/tvTelefono"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/ptelefono"
-            android:textSize="@dimen/descripcion_cardview"
-            android:layout_below="@+id/tvNombre"/>
-
-        <TextView
-            android:id="@+id/tvEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/pemail"
-            android:textSize="@dimen/descripcion_cardview"
-            android:layout_below="@+id/tvTelefono"
             />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/btnLike"
+                android:layout_width="@dimen/boton_like"
+                android:layout_height="@dimen/boton_like"
+                android:background="@drawable/icons8_facebook_like_96_9" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="@dimen/left">
+
+                <TextView
+                    android:id="@+id/tvNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pnombre"
+                    android:textSize="@dimen/nombre_cardview"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvTelefono"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ptelefono"
+                    android:textSize="@dimen/descripcion_cardview"
+                    android:layout_below="@+id/tvNombre"/>
+
+                <TextView
+                    android:id="@+id/tvEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pemail"
+                    android:textSize="@dimen/descripcion_cardview"
+                    android:layout_below="@+id/tvTelefono"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 

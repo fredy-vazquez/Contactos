@@ -6,17 +6,23 @@
     tools:context=".DetalleContactoActivity">
 
 
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent" >
 
+        <include
+            android:id="@+id/miActionBar"
+            layout="@layout/actionbar">
+        </include>
         <TextView
             android:id="@+id/tvNombre"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/nombre"
             android:textStyle="bold"
-            android:textSize="@dimen/nombre_contacto"/>
+            android:textSize="@dimen/nombre_contacto"
+            android:layout_below="@+id/miActionBar" />
 
         <LinearLayout
             android:id="@+id/llTelefono"

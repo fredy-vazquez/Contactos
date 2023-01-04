@@ -13,4 +13,6 @@
     <dimen name="nombre_cardview">25sp</dimen>
     <dimen name="descripcion_cardview">18sp</dimen>
     <dimen name="img_width">150sp</dimen>
+    <dimen name="boton_like">38sp</dimen>
+    <dimen name="elevacion_actionbar">38sp</dimen>
 </resources>
