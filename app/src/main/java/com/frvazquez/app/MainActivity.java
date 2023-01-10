@@ -2,16 +2,22 @@ package com.frvazquez.app;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.viewpager.widget.ViewPager;
 
 import android.os.Build;
 import android.os.Bundle;
 
-
 import com.frvazquez.app.adaptador.ContactoAdaptador;
+import com.frvazquez.app.adaptador.PaginaAdaptador;
+import com.frvazquez.app.fragment.PerfilFragment;
+import com.frvazquez.app.fragment.RecyclerViewFragment;
 import com.frvazquez.app.model.Contacto;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
@@ -20,14 +26,43 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<Contacto> contactos;
     private RecyclerView listaContactos;
+    private Toolbar toolbar;
+    private TabLayout tableLayout;
+    private ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        cargarContactos();
-        iniciarRecycleView();
+
+        iniciarViews();
+        setUpViewPage();
+
+        if(toolbar == null) {
+            setSupportActionBar(toolbar);
+        }
+        //cargarContactos();
+        //iniciarRecycleView();
     }
+
+    private void iniciarViews() {
+        toolbar = findViewById(R.id.toolbar);
+        tableLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
+    }
+
+    private ArrayList<Fragment> agregarFragment() {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new RecyclerViewFragment());
+        fragments.add(new PerfilFragment());
+        return fragments;
+    }
+
+    private void setUpViewPage() {
+        viewPager.setAdapter(new PaginaAdaptador(getSupportFragmentManager(), agregarFragment()));
+        tableLayout.setupWithViewPager(viewPager);
+    }
+
 
     private void iniciarRecycleView() {
         listaContactos = findViewById(R.id.rvContactos);
